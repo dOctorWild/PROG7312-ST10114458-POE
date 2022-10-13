@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Book.cs" />
-    <Compile Include="Classes\TestSorter.cs" />
+    <Compile Include="Classes\Identify.cs" />
     <Compile Include="Classes\Replace.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -91,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\graph_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fireworks-Animation.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
