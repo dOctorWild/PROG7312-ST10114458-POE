@@ -11,13 +11,17 @@ namespace SortTheBooks.Classes
     {
         // Declare our dictionary that will hold the call numbers and their definitions.
         IDictionary<string, string> matchColumns;
+        // Declare a dictionary that holds the values as keys and the keys as values
+        IDictionary<string, string> oppColumns;
         //----------------------------------------------------------------------------------------------//
         // Method to initialize the dictionary
         public void InitDict()
         {
-            // Initialising our dictionary
+            // Initialising our dictionaries
             this.matchColumns = new Dictionary<string, string>();
+            this.oppColumns = new Dictionary<string, string>();
             this.matchColumns.Clear();
+            this.oppColumns.Clear();
         }
         //----------------------------------------------------------------------------------------------//
         // Populate our dictionary with call numbers and their definitions
@@ -36,11 +40,30 @@ namespace SortTheBooks.Classes
             this.matchColumns.Add("600-699", "Technology");
             this.matchColumns.Add("700-799", "Arts & recreation");
             this.matchColumns.Add("800-899", "Literature");
-            this.matchColumns.Add("900-999", "History & Geography");
+            this.matchColumns.Add("900-999", "History & Geography"); 
+
+            Random rand = new Random();
+            this.matchColumns = this.matchColumns.OrderBy(x => rand.Next()).ToDictionary(item => item.Key, item => item.Value);
 
             return this.matchColumns;
         }
         //----------------------------------------------------------------------------------------------//
+        public IDictionary<string, string> PopOppDict()
+        {
+            // Adding a key/value using the Add() method
+            this.oppColumns.Add("General Works, Computer Science & Information", "000-099");
+            this.oppColumns.Add("Philosophy & Psychology", "100-199");
+            this.oppColumns.Add("Religion", "200-299");
+            this.oppColumns.Add("Social sciences", "300-399");
+            this.oppColumns.Add("Language", "400-499");
+            this.oppColumns.Add("Science", "500-599");
+            this.oppColumns.Add("Technology", "600-699");
+            this.oppColumns.Add("Arts & recreation", "700-799");
+            this.oppColumns.Add("Literature", "800-899");
+            this.oppColumns.Add("History & Geography", "900-999");
+
+            return this.oppColumns;
+        }
     }
     //------------------------------------------------END-----------------------------------------------//
 }

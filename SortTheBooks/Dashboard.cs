@@ -18,6 +18,7 @@ namespace SortTheBooks
         //------------------------------------------------------------------------------------------//
         List<string> callNumbers = new List<string>();
         IDictionary<string, string> topLevelNum = new Dictionary<string, string>();
+        IDictionary<string, string> keysAsValues = new Dictionary<string, string>();
         private int orderPoints;
         private int matchPoints;
 
@@ -25,11 +26,13 @@ namespace SortTheBooks
         public Dashboard()
         {
             InitializeComponent();
-
+            //----------------------------------------------------//
             pnlNav.Height = BtnDashboard.Height;
             pnlNav.Top = BtnDashboard.Top;
             pnlNav.Left = BtnDashboard.Left;
             BtnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+            this.topLevelNum = identifyObj.PopDict();
+            this.keysAsValues = identifyObj.PopOppDict();
         }
         //------------------------------------------------------------------------------------------//
         // DASHBOARD BUTTON ON SIDEBAR
@@ -39,6 +42,7 @@ namespace SortTheBooks
             pnlNav.Top = BtnDashboard.Top;
             pnlNav.Left = BtnDashboard.Left;
             BtnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+            //----------------------------------------------------//
             PnlVisibilityChange();
             PnlDashboard.Visible = true;
         }
@@ -49,7 +53,7 @@ namespace SortTheBooks
             pnlNav.Height = BtnReplaceBooks.Height;
             pnlNav.Top = BtnReplaceBooks.Top;
             BtnReplaceBooks.BackColor = Color.FromArgb(46, 51, 73);
-
+            //----------------------------------------------------//
             PopulateReplaceDataGridView();
             PnlVisibilityChange();
             PnlReplace.Visible = true;
@@ -61,8 +65,11 @@ namespace SortTheBooks
             pnlNav.Height = BtnIdentify.Height;
             pnlNav.Top = BtnIdentify.Top;
             BtnIdentify.BackColor = Color.FromArgb(46, 51, 73);
+            //----------------------------------------------------//
             PnlVisibilityChange();
             PopulateMatchColumnsView();
+            BtnFinishMatching.Visible = false;
+            BtnNextRound.Visible = false;
             PnlIdentify.Visible = true;
         }
         //------------------------------------------------------------------------------------------//
@@ -72,6 +79,7 @@ namespace SortTheBooks
             pnlNav.Height = BtnFindCallNum.Height;
             pnlNav.Top = BtnFindCallNum.Top;
             BtnFindCallNum.BackColor = Color.FromArgb(46, 51, 73);
+            //----------------------------------------------------//
             PnlVisibilityChange();
             PnlFind.Visible = true;
         }
@@ -82,6 +90,7 @@ namespace SortTheBooks
             pnlNav.Height = BtnSettings.Height;
             pnlNav.Top = BtnSettings.Top;
             BtnSettings.BackColor = Color.FromArgb(46, 51, 73);
+            //----------------------------------------------------//
             PnlVisibilityChange();
             PnlSettings.Visible = true;
         }
@@ -140,6 +149,7 @@ namespace SortTheBooks
         private void BtnReset_Click(object sender, EventArgs e)
         {
             PopulateReplaceDataGridView();
+            BtnSort.Visible = true;
         }
         //------------------------------------------------------------------------------------------//
         // UP BUTTON ON IDENTIFY AREAS
@@ -159,25 +169,21 @@ namespace SortTheBooks
         // RESET BUTTON ON IDENTIFY AREAS
         private void BtnReset2_Click(object sender, EventArgs e)
         {
-
-            DialogResult dialogResult = MessageBox.Show("Your points will be reset to 0 if you clicked yes.", "Are you sure you want to Reset?", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                //do something
-                this.matchPoints = 0;
-
-                PopulateMatchColumnsView();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                //do something else
-            }
+            Reset();
+        }
+        //------------------------------------------------------------------------------------------//
+        // NEXT BUTTON
+        private void BtnNextRound_Click(object sender, EventArgs e)
+        {
+            PopulateMatchColumnsView();
+            BtnNextRound.Visible = false;
         }
         //------------------------------------------------------------------------------------------//
         // FINISH BUTTON ON IDENTIFY AREAS
         private void BtnFinishMatching_Click(object sender, EventArgs e)
         {
             CheckMatchColumns();
+            BtnFinishMatching.Visible = false;
         }
         //------------------------------------------------------------------------------------------//
         // This method will make all panels invisible
@@ -205,7 +211,7 @@ namespace SortTheBooks
             // Add columns to both the DataGridViews.
             randomGridView.ColumnCount = 1;
             sortedGridView.ColumnCount = 1;
-            randomGridView.Columns[0].HeaderText = "Call Number";
+            randomGridView.Columns[0].HeaderText = "Call Numbers";
             sortedGridView.Columns[0].HeaderText = "Ordered List";
             // Put the new columns into programmatic sort mode
             randomGridView.Columns[0].SortMode = DataGridViewColumnSortMode.Programmatic;
@@ -268,7 +274,7 @@ namespace SortTheBooks
 
                 case 10:
                     LblError.ForeColor = Color.AntiqueWhite;
-                    LblError.Text = "You scored: " + this.orderPoints + " points!";
+                    LblError.Text = "You scored: " + this.orderPoints + " points! Well Done!";
 
                     fireworksBox.Visible = true;
                     break;
@@ -287,6 +293,7 @@ namespace SortTheBooks
         private void BtnSort_Click(object sender, EventArgs e)
         {
             CheckUserList();
+            BtnSort.Visible = false;
         }
         //------------------------------------------------------------------------------------------//
         // Method that moves selected row up one cell
@@ -350,32 +357,102 @@ namespace SortTheBooks
             leftColumnView.Visible = true;
             rightColumnView.Visible = true;
             rightColumnView.Enabled = true;
-            //LblError.Visible = false;
+
+            Random rnd = new Random();
 
             // Add columns to both the DataGridViews.
             leftColumnView.ColumnCount = 1;
             rightColumnView.ColumnCount = 1;
-            leftColumnView.Columns[0].HeaderText = "Call Number";
-            rightColumnView.Columns[0].HeaderText = "Description";
 
             // Put the new columns into programmatic sort mode
             rightColumnView.Columns[0].SortMode = DataGridViewColumnSortMode.Programmatic;
+            leftColumnView.Columns[0].SortMode = DataGridViewColumnSortMode.Programmatic;
 
             // Change selection mode to ColumnHeaderSelect
             rightColumnView.SelectionMode = DataGridViewSelectionMode.ColumnHeaderSelect;
 
-            this.topLevelNum = identifyObj.PopDict();
+            List<string> keyList = new List<string>(this.topLevelNum.Keys);
 
-            // Populate left column
-            for (int i = 0; i < 3; i++)
+            try
             {
-                leftColumnView.Rows.Add(this.topLevelNum.ElementAt(i).Key);
+                // if statement that will randomly choose which column is which
+                switch (rnd.Next(1, 11) <= 5)
+                {
+                    case true:
+                        // SETUP COLUMNS
+                        leftColumnView.Columns[0].HeaderText = "Call Numbers";
+                        rightColumnView.Columns[0].HeaderText = "Description";
+
+                        rightColumnView.Size = new System.Drawing.Size(329, 276);
+                        leftColumnView.Size = new System.Drawing.Size(172, 276);
+                        rightColumnView.Location = new System.Drawing.Point(289, 106);
+
+                        label14.Text = "Match the definitions with the call numbers:";
+
+                        // SETUP BUTTONS
+                        BtnUp2.Location = new System.Drawing.Point(204, 206);
+                        BtnDown2.Location = new System.Drawing.Point(204, 264);
+                        BtnFinishMatching.Location = new System.Drawing.Point(204, 340);
+
+                        // Populate left column
+                        for (int i = 0; i < 4; i++)
+                        {
+                            string randomKey = keyList[rnd.Next(keyList.Count)];
+
+                            int index = keyList.IndexOf(randomKey);
+                            keyList.RemoveAt(index);
+
+                            leftColumnView.Rows.Add(randomKey);
+                            
+                        }
+                        // Populate right column
+                        for (int x = 0; x < 4; x++)
+                        {
+                            rightColumnView.Rows.Add(this.topLevelNum[leftColumnView.Rows[x].Cells[0].Value.ToString()]);
+                            rightColumnView.Rows.Add(this.topLevelNum.ElementAt(rnd.Next(1, 10)).Value);
+                        }
+                        break;
+
+                    case false:
+                        // SETUP COLUMNS
+                        leftColumnView.Columns[0].HeaderText = "Description";
+                        rightColumnView.Columns[0].HeaderText = "Call Numbers";
+
+                        rightColumnView.Size = new System.Drawing.Size(172, 276);
+                        leftColumnView.Size = new System.Drawing.Size(329, 276);
+                        rightColumnView.Location = new System.Drawing.Point(446, 106);
+
+                        label14.Text = "Match the call numbers with the definitions:";
+
+                        // SETUP BUTTONS
+                        BtnUp2.Location = new System.Drawing.Point(361, 206);
+                        BtnDown2.Location = new System.Drawing.Point(361, 264);
+                        BtnFinishMatching.Location = new System.Drawing.Point(361, 340);
+
+                        for (int i = 0; i < 4; i++)
+                        {
+                            string randomKey = keyList[rnd.Next(keyList.Count)];
+
+                            int index = keyList.IndexOf(randomKey);
+                            keyList.RemoveAt(index);
+
+                            leftColumnView.Rows.Add(this.topLevelNum[randomKey]);
+                        }
+                        // Populate right column
+                        for (int x = 0; x < 4; x++)
+                        {
+                            rightColumnView.Rows.Add(this.keysAsValues.ElementAt(rnd.Next(1, 10)).Value);
+                            rightColumnView.Rows.Add(this.keysAsValues[leftColumnView.Rows[x].Cells[0].Value.ToString()]);
+                        }
+                        break;
+                }
             }
-            // Populate right column
-            for (int x = 0; x < 7; x++)
+            catch (Exception err)
             {
-                rightColumnView.Rows.Add(this.topLevelNum.ElementAt(x).Value);
+                MessageBox.Show(err.Message);
             }
+
+            
             LblIdentifyError.Text = matchPoints.ToString() + " Points!";
             LblIdentifyError.Visible = true;
         }
@@ -383,22 +460,44 @@ namespace SortTheBooks
         // Method that checks the matching columns
         public void CheckMatchColumns()
         {
-            for (int x = 0; x < 3; x++)
+            try
             {
-                string callNum = leftColumnView.Rows[x].Cells[0].Value.ToString();
-                string definition = rightColumnView.Rows[x].Cells[0].Value.ToString();
-
-                switch (this.topLevelNum[callNum] == definition)
+                for (int x = 0; x < 4; x++)
                 {
-                    case true:
-                        this.matchPoints++;
-                        rightColumnView.Rows[x].Cells[0].Style.BackColor = Color.Green;
-                        break;
+                    string leftCol = leftColumnView.Rows[x].Cells[0].Value.ToString();
+                    string rightCol = rightColumnView.Rows[x].Cells[0].Value.ToString();
 
-                    default:
-                        rightColumnView.Rows[x].Cells[0].Style.BackColor = Color.Red;
-                        break;
+                    switch (leftColumnView.Columns[0].HeaderText == "Call Numbers")
+                    {
+                        case true:
+                            if (this.topLevelNum[leftCol] == rightCol)
+                            {
+                                this.matchPoints++;
+                                rightColumnView.Rows[x].Cells[0].Style.BackColor = Color.Green;
+                            }
+                            else
+                            {
+                                rightColumnView.Rows[x].Cells[0].Style.BackColor = Color.Red;
+                            }
+                            break;
+
+                        case false:
+                            if (this.topLevelNum[rightCol] == leftCol)
+                            {
+                                this.matchPoints++;
+                                rightColumnView.Rows[x].Cells[0].Style.BackColor = Color.Green;
+                            }
+                            else
+                            {
+                                rightColumnView.Rows[x].Cells[0].Style.BackColor = Color.Red;
+                            }
+                            break;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
             LblIdentifyError.Visible = true;
@@ -426,6 +525,28 @@ namespace SortTheBooks
                     break;
             }
             BtnReset2.Visible = true;
+            BtnNextRound.Visible = true;
+        }
+        //------------------------------------------------------------------------------------------//
+        // Method is called by reset buttons
+        private void Reset()
+        {
+            DialogResult dialogResult = MessageBox.Show("Your points will be reset to 0 if you clicked yes.", 
+                "Are you sure you want to Reset?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //do something
+                this.matchPoints = 0;
+                LblIdentifyError.Visible = false;
+                BtnFinishMatching.Visible = false;
+                BtnNextRound.Visible = false;
+
+                PopulateMatchColumnsView();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
         //------------------------------------------------------------------------------------------//
     }
