@@ -63,6 +63,26 @@ namespace SortTheBooks.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap celebration {
+            get {
+                object obj = ResourceManager.GetObject("celebration", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap confetti {
+            get {
+                object obj = ResourceManager.GetObject("confetti", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fireworks_Animation {
             get {
                 object obj = ResourceManager.GetObject("Fireworks-Animation", resourceCulture);
@@ -96,6 +116,16 @@ namespace SortTheBooks.Properties {
         internal static System.Drawing.Bitmap user_icon1 {
             get {
                 object obj = ResourceManager.GetObject("user_icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap woah {
+            get {
+                object obj = ResourceManager.GetObject("woah", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

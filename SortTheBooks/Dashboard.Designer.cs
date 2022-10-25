@@ -54,10 +54,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PnlDashboard = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,13 +67,11 @@
             this.BtnReset = new System.Windows.Forms.Button();
             this.LblError = new System.Windows.Forms.Label();
             this.randomGridView = new System.Windows.Forms.DataGridView();
-            this.fireworksBox = new System.Windows.Forms.PictureBox();
             this.sortedGridView = new System.Windows.Forms.DataGridView();
             this.label15 = new System.Windows.Forms.Label();
             this.BtnUp = new System.Windows.Forms.Button();
             this.BtnDown = new System.Windows.Forms.Button();
             this.BtnSort = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.BtnClose = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -90,7 +86,6 @@
             this.BtnUp2 = new System.Windows.Forms.Button();
             this.leftColumnView = new System.Windows.Forms.DataGridView();
             this.label14 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -101,31 +96,42 @@
             this.label12 = new System.Windows.Forms.Label();
             this.PnlSettings = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.woahBox = new System.Windows.Forms.PictureBox();
+            this.celebrationBox = new System.Windows.Forms.PictureBox();
+            this.confettiBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.fireworksBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PnlSideBar.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PnlDashboard.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PnlReplace.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.randomGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fireworksBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sortedGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.PnlIdentify.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rightColumnView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftColumnView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.PnlFind.SuspendLayout();
             this.panel7.SuspendLayout();
             this.PnlSettings.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.woahBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.celebrationBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.confettiBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fireworksBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlSideBar
@@ -270,16 +276,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SortTheBooks.Properties.Resources.user_icon1;
-            this.pictureBox1.Location = new System.Drawing.Point(60, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // PnlDashboard
             // 
             this.PnlDashboard.Controls.Add(this.panel4);
@@ -305,16 +301,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(258, 130);
             this.panel4.TabIndex = 3;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::SortTheBooks.Properties.Resources.graph_icon;
-            this.pictureBox2.Location = new System.Drawing.Point(181, 33);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(52, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
             // 
             // label6
             // 
@@ -501,17 +487,6 @@
             this.randomGridView.Size = new System.Drawing.Size(146, 276);
             this.randomGridView.TabIndex = 4;
             // 
-            // fireworksBox
-            // 
-            this.fireworksBox.Image = global::SortTheBooks.Properties.Resources.Fireworks_Animation;
-            this.fireworksBox.Location = new System.Drawing.Point(0, 0);
-            this.fireworksBox.Name = "fireworksBox";
-            this.fireworksBox.Size = new System.Drawing.Size(686, 451);
-            this.fireworksBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.fireworksBox.TabIndex = 10;
-            this.fireworksBox.TabStop = false;
-            this.fireworksBox.Visible = false;
-            // 
             // sortedGridView
             // 
             this.sortedGridView.AllowUserToAddRows = false;
@@ -625,16 +600,6 @@
             this.BtnSort.UseVisualStyleBackColor = true;
             this.BtnSort.Click += new System.EventHandler(this.BtnSort_Click);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::SortTheBooks.Properties.Resources.graph_icon;
-            this.pictureBox3.Location = new System.Drawing.Point(611, 20);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(52, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -690,8 +655,11 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel6.Controls.Add(this.BtnNextRound);
             this.panel6.Controls.Add(this.LblIdentifyError);
-            this.panel6.Controls.Add(this.BtnFinishMatching);
+            this.panel6.Controls.Add(this.woahBox);
+            this.panel6.Controls.Add(this.celebrationBox);
             this.panel6.Controls.Add(this.rightColumnView);
+            this.panel6.Controls.Add(this.confettiBox);
+            this.panel6.Controls.Add(this.BtnFinishMatching);
             this.panel6.Controls.Add(this.BtnReset2);
             this.panel6.Controls.Add(this.BtnDown2);
             this.panel6.Controls.Add(this.BtnUp2);
@@ -913,16 +881,6 @@
             this.label14.Text = "Match the definitions in the right-hand column with the terms in the left column:" +
     "";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::SortTheBooks.Properties.Resources.graph_icon;
-            this.pictureBox4.Location = new System.Drawing.Point(611, 20);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(52, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -1041,16 +999,6 @@
             this.panel3.Size = new System.Drawing.Size(709, 454);
             this.panel3.TabIndex = 3;
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::SortTheBooks.Properties.Resources.graph_icon;
-            this.pictureBox7.Location = new System.Drawing.Point(611, 20);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(52, 50);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 3;
-            this.pictureBox7.TabStop = false;
-            // 
             // button6
             // 
             this.button6.FlatAppearance.BorderSize = 0;
@@ -1076,6 +1024,103 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Settings";
             // 
+            // woahBox
+            // 
+            this.woahBox.BackColor = System.Drawing.Color.Transparent;
+            this.woahBox.Image = global::SortTheBooks.Properties.Resources.woah;
+            this.woahBox.Location = new System.Drawing.Point(11, 2);
+            this.woahBox.Name = "woahBox";
+            this.woahBox.Size = new System.Drawing.Size(686, 451);
+            this.woahBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.woahBox.TabIndex = 20;
+            this.woahBox.TabStop = false;
+            this.woahBox.Visible = false;
+            // 
+            // celebrationBox
+            // 
+            this.celebrationBox.BackColor = System.Drawing.Color.Transparent;
+            this.celebrationBox.Image = global::SortTheBooks.Properties.Resources.celebration;
+            this.celebrationBox.Location = new System.Drawing.Point(104, 86);
+            this.celebrationBox.Name = "celebrationBox";
+            this.celebrationBox.Size = new System.Drawing.Size(514, 291);
+            this.celebrationBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.celebrationBox.TabIndex = 18;
+            this.celebrationBox.TabStop = false;
+            this.celebrationBox.Visible = false;
+            // 
+            // confettiBox
+            // 
+            this.confettiBox.BackColor = System.Drawing.Color.Transparent;
+            this.confettiBox.Image = global::SortTheBooks.Properties.Resources.confetti;
+            this.confettiBox.Location = new System.Drawing.Point(11, 3);
+            this.confettiBox.Name = "confettiBox";
+            this.confettiBox.Size = new System.Drawing.Size(686, 451);
+            this.confettiBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.confettiBox.TabIndex = 19;
+            this.confettiBox.TabStop = false;
+            this.confettiBox.Visible = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::SortTheBooks.Properties.Resources.graph_icon;
+            this.pictureBox4.Location = new System.Drawing.Point(611, 20);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(52, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // fireworksBox
+            // 
+            this.fireworksBox.Image = global::SortTheBooks.Properties.Resources.Fireworks_Animation;
+            this.fireworksBox.Location = new System.Drawing.Point(0, 0);
+            this.fireworksBox.Name = "fireworksBox";
+            this.fireworksBox.Size = new System.Drawing.Size(686, 451);
+            this.fireworksBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.fireworksBox.TabIndex = 10;
+            this.fireworksBox.TabStop = false;
+            this.fireworksBox.Visible = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::SortTheBooks.Properties.Resources.graph_icon;
+            this.pictureBox3.Location = new System.Drawing.Point(611, 20);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(52, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::SortTheBooks.Properties.Resources.graph_icon;
+            this.pictureBox7.Location = new System.Drawing.Point(611, 20);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(52, 50);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 3;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::SortTheBooks.Properties.Resources.graph_icon;
+            this.pictureBox2.Location = new System.Drawing.Point(181, 33);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(52, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SortTheBooks.Properties.Resources.user_icon1;
+            this.pictureBox1.Location = new System.Drawing.Point(60, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1095,27 +1140,22 @@
             this.PnlSideBar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PnlDashboard.ResumeLayout(false);
             this.PnlDashboard.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.PnlReplace.ResumeLayout(false);
             this.PnlReplace.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.randomGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fireworksBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sortedGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.PnlIdentify.ResumeLayout(false);
             this.PnlIdentify.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rightColumnView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftColumnView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.PnlFind.ResumeLayout(false);
             this.PnlFind.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -1123,7 +1163,15 @@
             this.PnlSettings.ResumeLayout(false);
             this.PnlSettings.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.woahBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.celebrationBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.confettiBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fireworksBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1190,6 +1238,9 @@
         private System.Windows.Forms.Button BtnFinishMatching;
         private System.Windows.Forms.Label LblIdentifyError;
         private System.Windows.Forms.Button BtnNextRound;
+        private System.Windows.Forms.PictureBox celebrationBox;
+        private System.Windows.Forms.PictureBox confettiBox;
+        private System.Windows.Forms.PictureBox woahBox;
     }
 }
 

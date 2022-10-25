@@ -357,6 +357,9 @@ namespace SortTheBooks
             leftColumnView.Visible = true;
             rightColumnView.Visible = true;
             rightColumnView.Enabled = true;
+            confettiBox.Visible = false;
+            celebrationBox.Visible = false;
+            woahBox.Visible = false;
 
             Random rnd = new Random();
 
@@ -514,9 +517,17 @@ namespace SortTheBooks
                     LblIdentifyError.Text = "You scored: " + this.matchPoints + " point! Really? You can do better.";
                     break;
 
-                case 3:
+                case 4:
                     LblIdentifyError.ForeColor = Color.AntiqueWhite;
                     LblIdentifyError.Text = "You scored: " + this.matchPoints + " points!";
+                    confettiBox.Visible = true;
+                    celebrationBox.Visible = true;
+                    break;
+                // Little easter egg for the dedicated player
+                case 69:
+                    LblIdentifyError.ForeColor = Color.AntiqueWhite;
+                    LblIdentifyError.Text = "You scored: " + this.matchPoints + " points!";
+                    woahBox.Visible = true;
                     break;
 
                 default:
