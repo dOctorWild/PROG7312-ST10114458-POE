@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Book.cs" />
+    <Compile Include="Classes\ClassifcationDataTree.cs" />
     <Compile Include="Classes\Identify.cs" />
+    <Compile Include="Classes\OperationsandStorage.cs" />
     <Compile Include="Classes\Replace.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -103,6 +104,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\woah.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\identify_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookshelf_icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

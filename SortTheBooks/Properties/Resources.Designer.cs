@@ -63,6 +63,16 @@ namespace SortTheBooks.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bookshelf_icon {
+            get {
+                object obj = ResourceManager.GetObject("bookshelf_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap celebration {
             get {
                 object obj = ResourceManager.GetObject("celebration", resourceCulture);
@@ -106,6 +116,26 @@ namespace SortTheBooks.Properties {
         internal static System.Drawing.Bitmap home_icon {
             get {
                 object obj = ResourceManager.GetObject("home_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap identify_icon {
+            get {
+                object obj = ResourceManager.GetObject("identify_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap setting_icon {
+            get {
+                object obj = ResourceManager.GetObject("setting_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

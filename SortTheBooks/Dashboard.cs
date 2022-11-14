@@ -15,6 +15,7 @@ namespace SortTheBooks
         //------------------------------------------------------------------------------------------//
         Classes.Replace replaceObj = new Classes.Replace();
         Classes.Identify identifyObj = new Classes.Identify();
+        Classes.OperationsandStorage storeObj = new Classes.OperationsandStorage();
         //------------------------------------------------------------------------------------------//
         List<string> callNumbers = new List<string>();
         IDictionary<string, string> topLevelNum = new Dictionary<string, string>();
@@ -136,13 +137,13 @@ namespace SortTheBooks
         // UP BUTTON ON REPLACE BOOKS
         private void BtnUp_Click(object sender, EventArgs e)
         {
-            MoveUp(randomGridView);
+            storeObj.MoveUp(randomGridView);
         }
         //------------------------------------------------------------------------------------------//
         // DOWN BUTTON ON REPLACE BOOKS
         private void BtnDown_Click(object sender, EventArgs e)
         {
-            MoveDown(randomGridView);
+            storeObj.MoveDown(randomGridView);
         }
         //------------------------------------------------------------------------------------------//
         // RESET BUTTON ON REPLACE BOOKS
@@ -155,14 +156,14 @@ namespace SortTheBooks
         // UP BUTTON ON IDENTIFY AREAS
         private void BtnUp2_Click(object sender, EventArgs e)
         {
-            MoveUp(rightColumnView);
+            storeObj.MoveUp(rightColumnView);
             BtnFinishMatching.Visible = true;
         }
         //------------------------------------------------------------------------------------------//
         // DOWN BUTTON ON IDENTIFY AREAS
         private void BtnDown2_Click(object sender, EventArgs e)
         {
-            MoveDown(rightColumnView);
+            storeObj.MoveDown(rightColumnView);
             BtnFinishMatching.Visible = true;
         }
         //------------------------------------------------------------------------------------------//
@@ -269,19 +270,19 @@ namespace SortTheBooks
 
                 case 1:
                     LblError.ForeColor = Color.AntiqueWhite;
-                    LblError.Text = "You scored: " + this.orderPoints + " point! Really? You can do better.";
+                    LblError.Text = storeObj.scoredText + this.orderPoints + " point! Really? You can do better.";
                     break;
 
                 case 10:
                     LblError.ForeColor = Color.AntiqueWhite;
-                    LblError.Text = "You scored: " + this.orderPoints + " points! Well Done!";
+                    LblError.Text = storeObj.scoredText + this.orderPoints + " points! Well Done!";
 
                     fireworksBox.Visible = true;
                     break;
 
                 default:
                     LblError.ForeColor = Color.AntiqueWhite;
-                    LblError.Text = "You scored: " + this.orderPoints + " points!";
+                    LblError.Text = storeObj.scoredText + this.orderPoints + " points!";
 
                     sortedGridView.Visible = true;
                     break;
@@ -294,58 +295,6 @@ namespace SortTheBooks
         {
             CheckUserList();
             BtnSort.Visible = false;
-        }
-        //------------------------------------------------------------------------------------------//
-        // Method that moves selected row up one cell
-        private void MoveUp(DataGridView selectedView)
-        {
-            try
-            {
-                int totalRows = selectedView.Rows.Count;
-                // get index of the row for the selected cell
-                int rowIndex = selectedView.SelectedCells[0].OwningRow.Index;
-                if (rowIndex == 0)
-                    return;
-                // get index of the column for the selected cell
-                int colIndex = selectedView.SelectedCells[0].OwningColumn.Index;
-                DataGridViewRow selectedRow = selectedView.Rows[rowIndex];
-                selectedView.Rows.Remove(selectedRow);
-                selectedView.Rows.Insert(rowIndex - 1, selectedRow);
-                selectedView.ClearSelection();
-                selectedView.Rows[rowIndex - 1].Cells[colIndex].Selected = true;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.ToString(),
-                    "Error Occured", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
-        //------------------------------------------------------------------------------------------//
-        // Method moves selected row down one cell
-        private void MoveDown(DataGridView selectedView)
-        {
-            try
-            {
-                int totalRows = selectedView.Rows.Count;
-                // get index of the row for the selected cell
-                int rowIndex = selectedView.SelectedCells[0].OwningRow.Index;
-                if (rowIndex == totalRows - 1)
-                    return;
-                // get index of the column for the selected cell
-                int colIndex = selectedView.SelectedCells[0].OwningColumn.Index;
-                DataGridViewRow selectedRow = selectedView.Rows[rowIndex];
-                selectedView.Rows.Remove(selectedRow);
-                selectedView.Rows.Insert(rowIndex + 1, selectedRow);
-                selectedView.ClearSelection();
-                selectedView.Rows[rowIndex + 1].Cells[colIndex].Selected = true;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.ToString(),
-                    "Error Occured", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
         }
         //------------------------------------------------------------------------------------------//
         // Populates the Match the columns DataGridView.
@@ -514,25 +463,25 @@ namespace SortTheBooks
 
                 case 1:
                     LblIdentifyError.ForeColor = Color.AntiqueWhite;
-                    LblIdentifyError.Text = "You scored: " + this.matchPoints + " point! Really? You can do better.";
+                    LblIdentifyError.Text = storeObj.scoredText + this.matchPoints + " point! Really? You can do better.";
                     break;
 
                 case 4:
                     LblIdentifyError.ForeColor = Color.AntiqueWhite;
-                    LblIdentifyError.Text = "You scored: " + this.matchPoints + " points!";
+                    LblIdentifyError.Text = storeObj.scoredText + this.matchPoints + " points!";
                     confettiBox.Visible = true;
                     celebrationBox.Visible = true;
                     break;
                 // Little easter egg for the dedicated player
                 case 69:
                     LblIdentifyError.ForeColor = Color.AntiqueWhite;
-                    LblIdentifyError.Text = "You scored: " + this.matchPoints + " points!";
+                    LblIdentifyError.Text = storeObj.scoredText + this.matchPoints + " points!";
                     woahBox.Visible = true;
                     break;
 
                 default:
                     LblIdentifyError.ForeColor = Color.AntiqueWhite;
-                    LblIdentifyError.Text = "You scored: " + this.matchPoints + " points!";
+                    LblIdentifyError.Text = storeObj.scoredText + this.matchPoints + " points!";
                     break;
             }
             BtnReset2.Visible = true;
@@ -542,11 +491,9 @@ namespace SortTheBooks
         // Method is called by reset buttons
         private void Reset()
         {
-            DialogResult dialogResult = MessageBox.Show("Your points will be reset to 0 if you clicked yes.", 
-                "Are you sure you want to Reset?", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            bool result = storeObj.ResetButton();
+            if (result)
             {
-                //do something
                 this.matchPoints = 0;
                 LblIdentifyError.Visible = false;
                 BtnFinishMatching.Visible = false;
@@ -554,7 +501,7 @@ namespace SortTheBooks
 
                 PopulateMatchColumnsView();
             }
-            else if (dialogResult == DialogResult.No)
+            else
             {
                 //do something else
             }
